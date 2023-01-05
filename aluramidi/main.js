@@ -21,5 +21,11 @@ for (let i = 0; i < keysList.length; i++) {
 }
 
 function playSound (keyAudioId) {
-    document.querySelector(keyAudioId).play();
+    const element = document.querySelector(keyAudioId);
+
+    if (element && element.localName === 'audio') {
+        element.play();
+    } else {
+        console.log('Áudio não encontrado!')
+    }
 }
