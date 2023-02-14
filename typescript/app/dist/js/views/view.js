@@ -1,5 +1,6 @@
 export class View {
-    constructor(selector) {
+    constructor(selector, escape) {
+        this.escape = false;
         const element = document.querySelector(selector);
         if (element) {
             this.element = element;
@@ -7,9 +8,16 @@ export class View {
         else {
             throw Error(`Seletor  ${selector} não existe no DOM!`);
         }
+        if (escape) {
+            this.escape = escape;
+        }
     }
     update(model) {
         let template = this.template(model);
+        if (this.escape) {
+            template = template
+                .replace(/<script>[\s\S]*?<\/script>/, '');
+        }
         this.element.innerHTML = template;
     }
 }

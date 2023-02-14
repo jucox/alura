@@ -1,10 +1,8 @@
-import { inspect } from "../decorators/inspect.js";
-import { executionTimeLogin } from "../decorators/execution-time-login.js";
-
 export abstract class View<T> {
     protected element: HTMLElement;
-    
-    constructor(selector: string) {
+    private escape = false;
+
+    constructor(selector: string, escape?: boolean) {
         const element = document.querySelector(selector);
 
         if (element) {
@@ -12,10 +10,19 @@ export abstract class View<T> {
         } else {
             throw Error(`Seletor  ${selector} não existe no DOM!`);
         }
+
+        if (escape) {
+            this.escape = escape;
+        }
     }
 
     public update(model: T): void {
         let template = this.template(model);
+
+        if (this.escape) {
+            template = template
+            .replace(/<script>[\s\S]*?<\/script>/, '');
+        }
 
         this.element.innerHTML = template;
     }
