@@ -1,0 +1,39 @@
+.collaborator-card {
+    width: 280px;
+}
+
+.collaborator-card .header {
+    background: #F0F0F0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.collaborator-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    bottom: -50px;
+    object-fit: cover;
+}
+
+.collaborator-card .footer {
+    background: #FFFFFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .08);
+    border-radius: 0px 0px 10px 10px;
+    padding: 90px 0 40px;
+}
+
+.collaborator-card .footer h4 {
+    color: #6278F7;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.collaborator-card .footer h5 {
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+    padding: 0 16px;
+}

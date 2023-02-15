@@ -1,0 +1,24 @@
+.page-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 0;
+    background: #6278F7;
+}
+
+.page-footer .social-media {
+    display: flex;
+    gap: 30px;
+}
+
+.page-footer .social-media img {
+    width: 30px;
+}
+
+.page-footer .logo img {
+    width: 170px;
+}
+
+.page-footer .copyright p {
+    color: #FFF;
+}
